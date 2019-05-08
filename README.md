@@ -1,6 +1,6 @@
 # forEach: The Unexpressive Collection-Processing Method
 
-## Learning Goal
+## Learning Goals
 
 - Use `forEach` to Work with an Array
 - Explain why `forEach` is the least-expressive collection-processing method
