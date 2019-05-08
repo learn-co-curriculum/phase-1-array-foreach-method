@@ -11,7 +11,7 @@ In the previous lesson, you learned that many of the collection-processing
 method family are basically slight variations on `map` and `reduce`.
 
 But `map` and `reduce` are "child" collection-processing methods from the root
-collection-processing method of them all, `.forEach`. In this lesson we'll talk
+collection-processing method of them all, `.forEach`. In this lesson, we'll talk
 about `forEach` and why it's a good idea to avoid it. Let's use it real quick.
 
 ## Use `forEach` to Work with an Array
