@@ -1,9 +1,9 @@
-# forEach: The Unexpressive collection-processing method
+# forEach: The Unexpressive Collection-Processing Method
 
 ## Learning Goal
 
-* Use `forEach` to Work with an Array
-* Explain why `forEach` is the least-expressive collection-processing method
+- Use `forEach` to Work with an Array
+- Explain why `forEach` is the least-expressive collection-processing method
 
 # Introduction
 
@@ -20,11 +20,20 @@ By now, you're so comfortable with collection-processing methods, you'll find
 `.forEach` follows the pattern of the "Character of Collection-Processing
 Methods."
 
-```ruby
-ppressed_workers = ["Dopey", "Sneezy", "Happy", "Angry", "Doc", "Lemonjello", "Sleepy" ]
-oppressed_workers.forEach(function(oppressedWorker){
-  console.log(`${oppressedWorker} wants to form a union!`)
-}) //=> undefined
+```js
+oppressedWorkers = [
+  "Dopey",
+  "Sneezy",
+  "Happy",
+  "Angry",
+  "Doc",
+  "Lemonjello",
+  "Sleepy"
+];
+
+oppressedWorkers.forEach(function(oppressedWorker) {
+  console.log(`${oppressedWorker} wants to form a union!`);
+}); //=> undefined
 
 /* Output
 Dopey wants to form a union!
@@ -41,7 +50,7 @@ We've saved talking about `forEach` for last. Despite the fact that `forEach`
 most simply expresses the "Character of collection-processing Methods," we're
 showing it _last_ because we to use it _least_. Why is that?
 
-## Explain Why `forEach` is the Least-expressive Collection-Processing method
+## Explain Why `forEach` is the Least-Expressive Collection-Processing Method
 
 We want to avoid `forEach` because it is the least-expressive
 collection-processing method. It communicates the _least_ to other programmers
@@ -49,7 +58,7 @@ about what it is we're trying to do.
 
 By now you recognize that `map` means: "create a new `Array` after transforming
 each element." You recognize that `reduce` means: "distill a value after
-joining elements together."  These methods are _expressive_, their very nature
+joining elements together." These methods are _expressive_, their very nature
 tells other programmers what you intended to happen.
 
 But what does `forEach` mean? Programmers, including you, recognize that `map` has
@@ -62,13 +71,15 @@ _documenting_ what our intention was with regard to the collection. This makes
 for code that's harder to understand and debug. Here's some code that uses
 `forEach` instead of `reduce`.
 
-```ruby
-function sumArray(numberArray){
-  let total = 0
-  numberArray.forEach(function(i){ total = total + i})
-  return total
+```js
+function sumArray(numberArray) {
+  let total = 0;
+  numberArray.forEach(function(i) {
+    total = total + i;
+  });
+  return total;
 }
-sumArray([1,2,3]) //=> 6
+sumArray([1, 2, 3]); //=> 6
 ```
 
 Sure, it works, but it doesn't _communicate_. We should always strive to have
