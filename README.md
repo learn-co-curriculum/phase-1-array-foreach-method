@@ -8,7 +8,7 @@
 # Introduction
 
 In the previous lesson, you learned that many of the collection-processing
-method family are basically slight variations on `map` and `reduce`.
+functions are really slight variations on `map` and `reduce`.
 
 But `map` and `reduce` are "child" collection-processing methods from the root
 collection-processing method of them all, `.forEach`. In this lesson, we'll talk
@@ -54,12 +54,12 @@ showing it _last_ because we to use it _least_. Why is that?
 
 We want to avoid `forEach` because it is the least-expressive
 collection-processing method. It communicates the _least_ to other programmers
-about what it is we're trying to do.
+about what we're trying to do.
 
 By now you recognize that `map` means: "create a new `Array` after transforming
 each element." You recognize that `reduce` means: "distill a value after
-joining elements together." These methods are _expressive_, their very nature
-tells other programmers what you intended to happen.
+joining elements together." These methods are _expressive_, their very
+definition tells other programmers what you intended to happen.
 
 But what does `forEach` mean? Programmers, including you, recognize that `map` has
 a specific use, `reduce` has a specific use, `max` has a specific use. But
@@ -90,8 +90,7 @@ code that communicates _first_ and works _second_.
 The best time to use `forEach` is when you need to enumerate a collection but
 aren't transforming data. It's also great to use when you're not quite sure
 which collection-processing method you want to use. The times when you're _not_
-better off `map`-ping or `reduce`-ing are few. The best use is to print out
-something to the screen.
+better off `map`-ping or `reduce`-ing are few.
 
 ## Conclusion
 
