@@ -48,7 +48,7 @@ Sleepy wants to form a union!
 
 We've saved talking about `forEach` for last. Despite the fact that `forEach`
 most simply expresses the "Character of collection-processing Methods," we're
-showing it _last_ because we to use it _least_. Why is that?
+showing it _last_ because we want to use it _least_. Why is that?
 
 ## Explain Why `forEach` is the Least-Expressive Collection-Processing Method
 
