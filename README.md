@@ -88,13 +88,13 @@ code that works ***and*** communicates.
 ## Identify Cases for `forEach`
 
 The best time to use `forEach` is when you need to enumerate a collection to
-cause some sort of "side-effect".
-
-The best example of of when to use `forEach` is when you want to iterate through
-a collection to `console.log()` values. This function doesn't return anything
-back so using something like `map()` would be wasteful and misleading. We're
-using `forEach` here strictly to do something that is handy for us (the
-developer) as a _side-effect_; in this case, printing content to the screen.
+cause some sort of "side-effect". The best example of this is when you want to
+iterate through a collection to `console.log()` values. This function doesn't
+return anything back, so using something like `map()` here would unnecessarily
+create a new array. It would also mislead any developers who are looking at our
+code about what its purpose is. We're using `forEach` here strictly to do
+something that is handy for us (the developer) as a _side-effect_; in this case,
+printing content to the screen.
 
 This is pretty common in debugging:
 
@@ -104,7 +104,8 @@ This is pretty common in debugging:
   })
 ```
 
-The other time we want to use `forEach` is when we want to directly change (or "mutate") elements that we're iterating through.
+The other time we want to use `forEach` is if we want to directly change (or
+"mutate") the elements we're iterating through.
 
 As an example, consider:
 
@@ -124,7 +125,7 @@ addFullNameToEmployees([
 In this case, we're directly updating employees in the original object, rather
 than creating a new object with the modifications (in which case we'd use `map`
 instead). The employee, `e`, is updated as a _side-effect_ of running `forEach`.
-The only clue that helps us guess what the `forEach` is doing is that the
+The only clue that helps us guess what the `forEach` is doing here is that the
 programmer "wrapped" it inside of a helpfully-named function name.
 
 ## Conclusion
