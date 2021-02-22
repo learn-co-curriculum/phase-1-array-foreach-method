@@ -1,24 +1,29 @@
-# forEach: The Unexpressive Collection-Processing Method
+# forEach: The Unexpressive Iterator
 
 ## Learning Goals
 
-- Use `forEach` to Work with an Array
-- Explain why `forEach` is the least-expressive collection-processing method
+- Use `forEach()` to work with an array
+- Explain why `forEach()` is the iterator method we should use least
+- Identify use cases for `forEach()`
 
 ## Introduction
 
-In the previous lesson, you learned that many of the collection-processing
-functions are really slight variations on `map` and `reduce`.
-
-But `map` and `reduce` are "child" collection-processing methods from the root
-collection-processing method of them all, `.forEach`. In this lesson, we'll talk
-about `forEach` and why it's a good idea to avoid it. Let's use it real quick.
+In previous lessons, we've learned about JavaScript's built-in `Array` methods
+and how they help us save work and write more efficient, readable code. In this
+lesson, we'll talk about one more: `forEach()`. We'll also discuss why it's the
+one you should use least.
 
 ## Use `forEach` to Work with an Array
 
-By now, you're so comfortable with collection-processing methods, you'll find
-`.forEach` follows the pattern of the "Character of Collection-Processing
-Methods."
+If you look at the MDN page for the `forEach()` method, you'll see the following description:
+
+> The forEach() method executes a provided function once for each array element.
+
+Unlike the other methods we've looked at in this section, `forEach()` doesn't
+have a built-in return value. As a result, `forEach()` is quite generic — the
+callback we pass to it can contain whatever functionality we like.
+
+To use `forEach()`, we simply call it on an array and pass our callback:
 
 ```js
 oppressedWorkers = [
@@ -46,30 +51,26 @@ Sleepy wants to form a union!
 */
 ```
 
-We've saved talking about `forEach` for last. Despite the fact that `forEach`
-most simply expresses the "Character of collection-processing Methods," we're
-showing it _last_ because we want to use it _least_. Why is that?
+While this flexibility may seem like a good thing at first glance, `forEach()`
+is actually the iterator we should use least often because its generic quality
+makes it the least expressive of the iterators.
 
-## Explain Why `forEach` is the Least-Expressive Collection-Processing Method
-
-We want to avoid `forEach` because it is the least-expressive
-collection-processing method. It communicates the _least_ to other programmers
-about what we're trying to do.
+## Explain Why `forEach` is the Iterator Method We Should Use Least
 
 By now you recognize that `map` means: "create a new `Array` after transforming
 each element." You recognize that `reduce` means: "distill a single summary value from
 a set of elements." These methods are _expressive_; their presence in your code tells
 other programmers (and yourself in the future) what you intended to happen.
 
-But what does `forEach` mean? Programmers, including you, recognize that `map` has
-a specific use, `reduce` has a specific use, `max` has a specific use. But
-`forEach` is generic. Are we just printing things, or are we trying to distill to
+But what does `forEach` mean? Programmers, including you, recognize that `map()` has
+a specific use, `reduce()` has a specific use, `find()` has a specific use. But
+`forEach()` is generic. Are we just printing things, or are we trying to distill to
 a value, or are we trying to produce a transformed `Array`?
 
-When we use `forEach` to do `map`-things or `reduce`-things we're not
+When we use `forEach()` to do `map`-things or `reduce`-things we're not
 _documenting_ what our intention was with regard to the collection. This makes
 for code that's harder to understand and debug. Here's some code that uses
-`forEach` instead of `reduce`.
+`forEach()` instead of `reduce()`.
 
 ```js
 function sumArray(numberArray) {
@@ -85,16 +86,16 @@ sumArray([1, 2, 3]); //=> 6
 Sure, it works, but it doesn't _communicate_. We should always strive to have
 code that works ***and*** communicates.
 
-## Identify Cases for `forEach`
+## Identify Use Cases for `forEach`
 
-The best time to use `forEach` is when you need to enumerate a collection to
-cause some sort of "side-effect". The best example of this is when you want to
-iterate through an array to `console.log()` values. This function doesn't return
-anything back, so using something like `map()` here would unnecessarily create a
-new array. It would also mislead any developers who are looking at our code
-about what its purpose is. We're using `forEach` here strictly to do something
-that is handy for us (the developer) as a _side-effect_; in this case, printing
-content to the screen.
+The best time to use `forEach()` is when you need to enumerate a collection to
+cause some sort of "side-effect". A good example of this is when you want to
+iterate through an array to log values. `console.log()` doesn't return anything
+back, so using something like `map()` here would unnecessarily create a new
+array. It would also mislead any developers who are looking at your code about
+what its purpose is. We're using `forEach` strictly to do something that is
+handy for us (the developer) as a _side-effect_; in this case, printing content
+to the screen.
 
 This is pretty common in debugging:
 
@@ -104,7 +105,7 @@ This is pretty common in debugging:
   })
 ```
 
-The other time we want to use `forEach` is if we want to directly change (or
+The other time we want to use `forEach` is if we need to directly change (or
 "mutate") the elements we're iterating through.
 
 As an example, consider:
@@ -123,14 +124,25 @@ addFullNameToEmployees([
 ```
 
 In this case, we're directly updating employees in the original object, rather
-than creating a new object with the modifications (in which case we'd use `map`
-instead). The employee, `e`, is updated as a _side-effect_ of running `forEach`.
-The only clue that helps us guess what the `forEach` is doing here is that the
-programmer "wrapped" it inside of a helpfully-named function name.
+than creating a new object with the modifications. The employee, `e`, is updated
+as a _side-effect_ of running `forEach`. The only clue that helps us guess what
+`forEach` is doing here is that the programmer "wrapped" it inside of a
+helpfully-named function.
+
+Recall, however, that directly mutating objects is something that should be
+avoided in most cases. This is another good reason to use `forEach` sparingly.
 
 ## Conclusion
 
-This concludes our discussion of `forEach`. It's the most flexible
-collection-processing method, but it's also the least expressive. When you
-aren't sure which way to go, you might want to use it, but most of the time you
-really want to use `map` or `reduce`.
+In this lesson, we've introduced `Array.prototype.forEach()`. It is flexible and
+straightforward to use, which can make it an attractive option when you aren't
+sure which iterator is the best one for your needs. However, in the majority of
+cases, one of the other iterator methods will be a better choice. You should
+only use `forEach()` under the specific circumstances outlined above.
+
+As you continue learning JavaScript, you should take advantage of the
+_expressive_ iterator methods we've learned about in this section as much as
+possible. Under most circumstances, using `find()`, `filter()`, `map()`, or
+`reduce()` in place of more generic options, `forEach`, `for...of`, and `for`,
+will save you work in the long run and make your code more efficient and
+expressive.
