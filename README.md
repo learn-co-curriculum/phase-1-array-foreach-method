@@ -51,21 +51,20 @@ Sleepy wants to form a union!
 */
 ```
 
-While this flexibility may seem like a good thing at first glance, `forEach()`
-is actually the iterator we should use least often because its generic quality
-makes it the least expressive of the iterators.
+While this flexibility may seem like a good thing at first glance, the fact that
+it's generic makes it the least expressive of the iterators.
 
 ## Explain Why `forEach` is the Iterator Method We Should Use Least
 
 By now you recognize that `map` means: "create a new `Array` after transforming
 each element." You recognize that `reduce` means: "distill a single summary value from
 a set of elements." These methods are _expressive_; their presence in your code tells
-other programmers (and yourself in the future) what you intended to happen.
+other programmers (and your future self) what you intended to happen.
 
-But what does `forEach` mean? Programmers, including you, recognize that `map()` has
-a specific use, `reduce()` has a specific use, `find()` has a specific use. But
-`forEach()` is generic. Are we just printing things, or are we trying to distill to
-a value, or are we trying to produce a transformed `Array`?
+But what does `forEach` mean? Programmers recognize that `map()` has a specific
+use, `reduce()` has a specific use, `find()` has a specific use. But `forEach()`
+is generic. Are we just printing things, or are we trying to distill to a value,
+or are we trying to produce a transformed `Array`?
 
 When we use `forEach()` to do `map`-things or `reduce`-things we're not
 _documenting_ what our intention was with regard to the collection. This makes
@@ -92,10 +91,10 @@ The best time to use `forEach()` is when you need to enumerate a collection to
 cause some sort of "side-effect". A good example of this is when you want to
 iterate through an array to log values. `console.log()` doesn't return anything
 back, so using something like `map()` here would unnecessarily create a new
-array. It would also mislead any developers who are looking at your code about
-what its purpose is. We're using `forEach` strictly to do something that is
-handy for us (the developer) as a _side-effect_; in this case, printing content
-to the screen.
+array. It would also mislead any developers who look at your code about what its
+purpose is. We're using `forEach` strictly to do something that is handy for us
+(the developer) as a _side-effect_; in this case, printing content to the
+screen.
 
 This is pretty common in debugging:
 
