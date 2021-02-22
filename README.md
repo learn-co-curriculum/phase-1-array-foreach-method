@@ -89,12 +89,12 @@ code that works ***and*** communicates.
 
 The best time to use `forEach` is when you need to enumerate a collection to
 cause some sort of "side-effect". The best example of this is when you want to
-iterate through a collection to `console.log()` values. This function doesn't
-return anything back, so using something like `map()` here would unnecessarily
-create a new array. It would also mislead any developers who are looking at our
-code about what its purpose is. We're using `forEach` here strictly to do
-something that is handy for us (the developer) as a _side-effect_; in this case,
-printing content to the screen.
+iterate through an array to `console.log()` values. This function doesn't return
+anything back, so using something like `map()` here would unnecessarily create a
+new array. It would also mislead any developers who are looking at our code
+about what its purpose is. We're using `forEach` here strictly to do something
+that is handy for us (the developer) as a _side-effect_; in this case, printing
+content to the screen.
 
 This is pretty common in debugging:
 
