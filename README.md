@@ -1,9 +1,9 @@
-# forEach: The Unexpressive Iterator
+# forEach: The Iterator of No Return
 
 ## Learning Goals
 
 - Use `forEach()` to work with an array
-- Explain why `forEach()` is the iterator method we should use least
+- Explain why `forEach()` is the "least expressive" iterator method
 - Identify use cases for `forEach()`
 
 ## Introduction
@@ -11,7 +11,7 @@
 In previous lessons, we've learned about JavaScript's built-in `Array` methods
 and how they help us save work and write more efficient, readable code. In this
 lesson, we'll talk about one more: `forEach()`. We'll also discuss why it's the
-one you should use least.
+the "least expressive" iterator.
 
 ## Use `forEach` to Work with an Array
 
@@ -54,12 +54,13 @@ Sleepy wants to form a union!
 While this flexibility may seem like a good thing at first glance, the fact that
 it's generic makes it the least expressive of the iterators.
 
-## Explain Why `forEach` is the Iterator Method We Should Use Least
+## Explain Why `forEach` is the Least Expressive Iterator Method
 
 By now you recognize that `map` means: "create a new `Array` after transforming
-each element." You recognize that `reduce` means: "distill a single summary value from
-a set of elements." These methods are _expressive_; their presence in your code tells
-other programmers (and your future self) what you intended to happen.
+each element." You recognize that `reduce` means: "distill a single summary
+value from a set of elements." These methods are _expressive_; their presence in
+your code tells other programmers (and your future self) what you intended to
+happen.
 
 But what does `forEach` mean? Programmers recognize that `map()` has a specific
 use, `reduce()` has a specific use, `find()` has a specific use. But `forEach()`
@@ -129,7 +130,9 @@ as a _side-effect_ of running `forEach`. The only clue that helps us guess what
 helpfully-named function.
 
 Recall, however, that directly mutating objects is something that should be
-avoided in most cases. This is another good reason to use `forEach` sparingly.
+avoided in most cases. It's generally better to use the more expressive `map()`
+method for the use case above and save `forEach()` for cases where we aren't
+concerned about the return value.
 
 ## Conclusion
 
