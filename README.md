@@ -11,11 +11,12 @@
 In previous lessons, we've learned about JavaScript's built-in `Array` methods
 and how they help us save work and write more efficient, readable code. In this
 lesson, we'll talk about one more: `forEach()`. We'll also discuss why it's the
-the "least expressive" iterator.
+"least expressive" iterator.
 
 ## Use `forEach` to Work with an Array
 
-If you look at the MDN page for the `forEach()` method, you'll see the following description:
+If you look at the MDN page for the `forEach()` method, you'll see the following
+description:
 
 > The forEach() method executes a provided function once for each array element.
 
@@ -33,10 +34,10 @@ oppressedWorkers = [
   "Angry",
   "Doc",
   "Lemonjello",
-  "Sleepy"
+  "Sleepy",
 ];
 
-oppressedWorkers.forEach(function(oppressedWorker) {
+oppressedWorkers.forEach(function (oppressedWorker) {
   console.log(`${oppressedWorker} wants to form a union!`);
 }); //=> undefined
 
@@ -75,7 +76,7 @@ for code that's harder to understand and debug. Here's some code that uses
 ```js
 function sumArray(numberArray) {
   let total = 0;
-  numberArray.forEach(function(i) {
+  numberArray.forEach(function (i) {
     total = total + i;
   });
   return total;
@@ -84,7 +85,7 @@ sumArray([1, 2, 3]); //=> 6
 ```
 
 Sure, it works, but it doesn't _communicate_. We should always strive to have
-code that works ***and*** communicates.
+code that works **_and_** communicates.
 
 ## Identify Use Cases for `forEach`
 
@@ -100,9 +101,9 @@ screen.
 This is pretty common in debugging:
 
 ```js
-  empCollection.forEach(function(e){
-    console.log("DEBUG: WHAT ARE YOU?!?" + e)
-  })
+empCollection.forEach(function (e) {
+  console.log("DEBUG: WHAT ARE YOU?!?" + e);
+});
 ```
 
 The other time we want to use `forEach` is if we need to directly change (or
@@ -111,16 +112,16 @@ The other time we want to use `forEach` is if we need to directly change (or
 As an example, consider:
 
 ```js
-function addFullNameToEmployees(empCollection){
-  empCollection.forEach(function(e){
-    e.fullName = `${e.firstName} ${e.familyName}`
-  })
+function addFullNameToEmployees(empCollection) {
+  empCollection.forEach(function (e) {
+    e.fullName = `${e.firstName} ${e.familyName}`;
+  });
 }
 
 addFullNameToEmployees([
-  {firstName: "Byron", familyName: "Karbitii"},
-  {firstName: "Luca", familyName: "Tuexedensis"}
-])
+  { firstName: "Byron", familyName: "Karbitii" },
+  { firstName: "Luca", familyName: "Tuexedensis" },
+]);
 ```
 
 In this case, we're directly updating employees in the original object, rather
